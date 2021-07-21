@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutGap="12px" class="item">
-    <div *ngIf="index">{{index}}.</div>
+    <div *ngIf="index" fxFlex="2">{{index}}.</div>
     <a routerLink="/login" [queryParams]="{for:'vote'}" class="like">
         <mat-icon>thumb_up</mat-icon>
     </a>
@@ -17,15 +17,13 @@
             <mat-divider vertical="true" fxHide.lt-sm="true"></mat-divider>
             <a routerLink="/login"  [queryParams]="{for:'hide'}"  >hide</a>
             <mat-divider vertical="true" fxHide.lt-sm="true"></mat-divider>
-            <a routerLink="/login">past</a>
+            <a routerLink="/past" >past</a>
 
             <mat-divider vertical="true" fxHide.lt-sm="true" *ngIf="item?.parent "></mat-divider>
             <a [routerLink]="['/item', item?.parent]" *ngIf="item?.parent ">parent</a>
 
-
-
             <mat-divider vertical="true" fxHide.lt-sm="true"></mat-divider>
-            <a routerLink="/login">favorite</a>
+            <a routerLink="/login" [queryParams]="{'for':'favorite'}">favorite</a>
             <mat-divider vertical="true" fxHide.lt-sm="true"></mat-divider>
             <a [routerLink]="['/item', item?.id]">{{item?.descendants}} comments</a>
         </div>
@@ -36,7 +34,7 @@
             <mat-form-field class="commentTextArea" appearance="outline" >
                 <textarea matInput></textarea>
             </mat-form-field>
-            <button mat-button routerLink="/login">add comment</button>
+            <button mat-button routerLink="/login" [queryParams]="{'for':'comment'}">add comment</button>
         </div>
     </div>
 </div>

@@ -35,7 +35,7 @@ export class NewsSandboxService {
     return comments;
   }
   public async loadMore() {
-    const start = this.startFrom +  this.commentsCount;
+    const start = this.startFrom + this.commentsCount;
 
     if (this._item?.kids && this._item?.kids.length > 0) {
       const comments = await this.getComments(
@@ -45,5 +45,8 @@ export class NewsSandboxService {
       this.comments.next(this._comments);
       this.startFrom = start;
     }
+  }
+  public reset(){
+    this.startFrom = 0;
   }
 }

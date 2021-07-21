@@ -1,32 +1,38 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, from, Observable, Subject } from 'rxjs';
-import { environment } from '../../environments/environment';
-import { Item, ItemId, User } from '../data-model/interfaces';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { environment } from "../../environments/environment";
+import { Item, ItemId, User } from "../data-model/interfaces";
 
 const API_URL = environment.API_URL;
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  public getTopStories(start: number = 0, count: number): Promise<ItemId[]> {
-    return new Promise((resolve, reject) => {
-      
-      this.http
-        .get(this.createGenericURL('topstories'))
-        .toPromise()
-        .then((itemsIds) => {
-          if (Array.isArray(itemsIds)) {
-            itemsIds.length > count
-              ? resolve(itemsIds.slice(start, start + count))
-              : resolve(itemsIds);
-          }
-        })
-        .catch((e) => reject(e));
-    });
+  public getTopStories(start: number = 0, count?: number): Promise<ItemId[]> {
+    return this.getGenericItems("topstories", start, count);
+  }
+
+  public getNewStories(start: number = 0, count?: number): Promise<ItemId[]> {
+    return this.getGenericItems("newstories", start, count);
+  }
+
+  public getBestStories(start: number = 0, count?: number): Promise<ItemId[]> {
+    return this.getGenericItems("beststories", start, count);
+  }
+
+  public getAskStories(start: number = 0, count?: number): Promise<ItemId[]> {
+    return this.getGenericItems("askstories", start, count);
+  }
+
+  public getShowStories(start: number = 0, count?: number): Promise<ItemId[]> {
+    return this.getGenericItems("showstories", start, count);
+  }
+
+  public getJobStories(start: number = 0, count?: number): Promise<ItemId[]> {
+    return this.getGenericItems("jobstories", start, count);
   }
 
   public getItem(id: ItemId): Promise<Item> {
@@ -38,6 +44,31 @@ export class ApiService {
       .get(this.createUserURL(username))
       .toPromise() as Promise<User>;
   }
+
+  private getGenericItems(
+    type: string,
+    start: number = 0,
+    count?: number
+  ): Promise<ItemId[]> {
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.createGenericURL(type))
+        .toPromise()
+        .then((itemsIds) => {
+          if (Array.isArray(itemsIds)) {
+            if (count) {
+              resolve(itemsIds.slice(start, start + count));
+            } else {
+              resolve(itemsIds);
+            }
+          } else {
+            reject("invalid item ids");
+          }
+        })
+        .catch((e) => reject(e));
+    });
+  }
+
   /**
    *
    * @param id : string

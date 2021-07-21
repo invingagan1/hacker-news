@@ -23,3 +23,10 @@
         border:none
     }
 }
+@media only screen and (max-width: 599px){
+    .footer{
+        .link{
+            border-right: none;
+        }
+    }
+}

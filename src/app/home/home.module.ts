@@ -5,11 +5,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeSandboxService } from './home-sandbox.service';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
+import { AuthGuardService } from '../auth/auth-guard.service';
 
 
 const routes: Routes = [
   {
-    path:"", component: HomeComponent
+    path:"", component: HomeComponent,
+    canActivate:[AuthGuardService]
   }
 ];
 

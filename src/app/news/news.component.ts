@@ -41,6 +41,7 @@ export class NewsComponent implements OnInit, OnDestroy {
     this.routeSubscription?.unsubscribe();
     this.itemSubscription?.unsubscribe();
     this.commentsSubscription?.unsubscribe();
+    this.sandbox.reset();
   }
 
   loadMore() {

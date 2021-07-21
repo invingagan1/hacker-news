@@ -9,6 +9,7 @@ import { HeaderModule } from './header/header.module';
 import { ApiService } from './api/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FooterComponent } from './footer/footer.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     HeaderModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule
   ],
   providers: [
     ApiService
