@@ -1,0 +1,42 @@
+<div fxLayout="row" fxLayoutGap="12px" class="item">
+    <div *ngIf="index">{{index}}.</div>
+    <a routerLink="/login" [queryParams]="{for:'vote'}" class="like">
+        <mat-icon>thumb_up</mat-icon>
+    </a>
+    <div fxLayout="column">
+        <div class="firstLine" fxLayout="row" fxLayoutGap="12px" fxLayout.lt-sm="column" *ngIf="item?.type==='story' ">
+            <a class="url" [href]="item?.url">{{item?.title}}</a>
+            <a class="domain" [href]="item?.url | domain" class="domain">({{item?.url | domain : 'host'}})</a>
+        </div>
+        <div class="secondLine" fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="start center"
+            fxLayoutAlign.lt-sm="start start" fxLayout.lt-sm="column">
+            <span>{{item?.score}} points by
+                <a [routerLink]="['/user', item?.by]">{{item?.by}}</a> &nbsp;
+                <a [routerLink]="['/item', item?.id]"
+                    [title]="item?.time | time">{{item?.time | time : 'fromNow'}}</a>.</span>
+            <mat-divider vertical="true" fxHide.lt-sm="true"></mat-divider>
+            <a routerLink="/login"  [queryParams]="{for:'hide'}"  >hide</a>
+            <mat-divider vertical="true" fxHide.lt-sm="true"></mat-divider>
+            <a routerLink="/login">past</a>
+
+            <mat-divider vertical="true" fxHide.lt-sm="true" *ngIf="item?.parent "></mat-divider>
+            <a [routerLink]="['/item', item?.parent]" *ngIf="item?.parent ">parent</a>
+
+
+
+            <mat-divider vertical="true" fxHide.lt-sm="true"></mat-divider>
+            <a routerLink="/login">favorite</a>
+            <mat-divider vertical="true" fxHide.lt-sm="true"></mat-divider>
+            <a [routerLink]="['/item', item?.id]">{{item?.descendants}} comments</a>
+        </div>
+        <div class="thirdLine" *ngIf="item?.type === 'comment'" [innerHTML]="item?.text">
+
+        </div>
+        <div fxLayout="column" fxLayoutAlign="start start" class="commentForm" fxLayoutGap="0.5rem" *ngIf="enableComment">
+            <mat-form-field class="commentTextArea" appearance="outline" >
+                <textarea matInput></textarea>
+            </mat-form-field>
+            <button mat-button routerLink="/login">add comment</button>
+        </div>
+    </div>
+</div>

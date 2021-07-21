@@ -1,0 +1,29 @@
+<header fxFlex>
+    <nav fxLayoutAlign="space-between center" >
+        <div fxLayout fxLayoutGap="12px" fxLayoutAlign="start center">
+            <a routerLink="/">
+                <img src="../../../assets/img/y18.gif" alt="">
+            </a>
+
+            <div fxLayout="row" fxLayout="start center" fxLayout.lt-sm="column" fxLayoutGap="12px">
+                <a routerLink="/home" class="title">Hacker News</a>
+                <div fxLayoutAlign="start center" fxLayoutGap="12px" style="flex-wrap: wrap;">
+                    <a routerLink="/login">new</a>
+                    <mat-divider [vertical]="true"></mat-divider>
+                    <a routerLink="/login">past</a>
+                    <mat-divider [vertical]="true"></mat-divider>
+                    <a routerLink="/login">comments</a>
+                    <mat-divider [vertical]="true"></mat-divider>
+                    <a routerLink="/login">ask</a>
+                    <mat-divider [vertical]="true"></mat-divider>
+                    <a routerLink="/login">show</a>
+                    <mat-divider [vertical]="true"></mat-divider>
+                    <a routerLink="/login">jobs</a>
+                    <mat-divider [vertical]="true"></mat-divider>
+                    <a routerLink="/login">submit</a>
+                </div>
+            </div>
+        </div>
+        <a routerLink="/login">login</a>
+    </nav>
+</header>

@@ -1,0 +1,40 @@
+@import '../../../assets/scss/vars.scss';
+.item {
+  background-color: $app-background-color;
+  color: $text-color;
+
+  a, a:visited, a:active, a:hover{
+    color: $text-color;
+    text-decoration: none;
+  }
+  .firstLine {
+    .url,
+    .url:active,
+    .url:visited,
+    .url:hover {
+      color: #000;
+    }
+    .domain:hover {
+      text-decoration: underline;
+    }
+  }
+  .secondLine {
+    a:hover {
+      text-decoration: underline;
+    }
+    mat-divider {
+      background-color: $text-color;
+      height: 1rem;
+    }
+  }
+  .thirdLine{
+    color: $text-color-dark;
+  }
+
+  .commentForm{
+    margin-top: 1rem;
+    .commentTextArea{
+      width: 100%;
+    }
+  }
+}

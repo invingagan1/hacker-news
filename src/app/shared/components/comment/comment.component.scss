@@ -1,0 +1,21 @@
+@import "../../../../assets/scss/vars.scss";
+.comment {
+  margin-top: 1rem;
+  color: $text-color;
+  mat-icon {
+    color: $text-color;
+  }
+  .text {
+    color: $text-color-dark;
+  }
+  a,
+  a:active,
+  a:hover,
+  a:visited {
+    color: $text-color;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}

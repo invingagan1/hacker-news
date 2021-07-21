@@ -1,0 +1,23 @@
+<section class="comment">
+    <div fxLayout fxLayoutGap="1rem">
+        <div>
+            <a routerLink="/login">
+                <mat-icon >thumb_up</mat-icon>
+            </a>
+        </div>
+        <div fxLayout="column">
+            <div fxLayout="row" fxLayoutGap="10px">
+                <a [routerLink]="['/user', item?.by]">{{item?.by}}</a>
+                <a [routerLink]="['/item', item?.id]">{{item?.time | time : 'fromNow'}}</a>
+                <span *ngIf="isExpanded; else kids" (click)="isExpanded = !isExpanded">[ - ]</span>
+                <ng-template #kids>
+                    <span (click)="isExpanded = !isExpanded">[ {{kidsCount}} more ]</span>
+                </ng-template>
+            </div>
+            <div *ngIf="isExpanded">
+                <div class="text" [innerHtml]="item?.text" ></div>
+                <a routerLink="/login">reply</a>
+            </div>
+        </div>
+    </div>
+</section>

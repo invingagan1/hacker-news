@@ -1,0 +1,9 @@
+<p *ngIf="sandbox.isLoading">Loading...</p>
+<section *ngIf="!sandbox.isLoading">
+    <app-item [item]="item" [enableComment]="true"></app-item>
+    <div class="comment">
+        <app-comment *ngFor="let comment of comments;" [item]="comment">
+        </app-comment>
+    </div>
+    <button mat-button (click)="loadMore()">more</button>
+</section>

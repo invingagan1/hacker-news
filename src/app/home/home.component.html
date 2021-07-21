@@ -1,0 +1,6 @@
+<p *ngIf="sandbox.isLoading">Loading...</p>
+<section class="home" *ngIf="!sandbox.isLoading">
+    <app-item *ngFor="let item of sandbox.topStories | async; let index = index" [item]="item" [index]="index + 1">
+    </app-item>
+    <button mat-button (click)="more()">more</button>
+</section>
