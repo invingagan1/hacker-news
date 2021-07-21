@@ -1,11 +1,10 @@
 import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ApiService } from '../api/api.service';
-import { SandboxService } from '../core/sandbox.service';
 import { Item } from '../data-model/interfaces';
 
 @Injectable()
-export class HomeSandboxService extends SandboxService {
+export class HomeSandboxService {
   public topStories = new BehaviorSubject<Item[]>([]);
   private _topStories: Item[] = [];
   public isLoading: boolean = true;
@@ -13,7 +12,6 @@ export class HomeSandboxService extends SandboxService {
   private itemCount = 5;
 
   constructor(private apiService: ApiService) {
-    super();
   }
 
   async getTopStories() {

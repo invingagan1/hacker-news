@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BaseComponent } from '../core/base.component';
 import { HomeSandboxService } from './home-sandbox.service';
 
 @Component({
@@ -7,17 +6,16 @@ import { HomeSandboxService } from './home-sandbox.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(public sandbox: HomeSandboxService) {
-    super(sandbox);
    }
 
   ngOnInit(): void {
-    super.ngOnInit();
+    this.sandbox.getTopStories();
   }
   ngOnDestroy(){
-    super.ngOnDestroy();
+    this.sandbox.reset();
   }
   more(){
     this.sandbox.more();
