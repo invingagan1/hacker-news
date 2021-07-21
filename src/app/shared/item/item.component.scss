@@ -2,7 +2,9 @@
 .item {
   background-color: $app-background-color;
   color: $text-color;
-
+  .arrow{
+    transform: rotate(-90deg) scale(1.5);
+  }
   a, a:visited, a:active, a:hover{
     color: $text-color;
     text-decoration: none;

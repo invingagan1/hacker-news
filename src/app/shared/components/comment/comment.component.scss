@@ -4,6 +4,7 @@
   color: $text-color;
   mat-icon {
     color: $text-color;
+    transform: rotate(-90deg) scale(1.5);
   }
   .text {
     color: $text-color-dark;

@@ -1,7 +1,7 @@
 <div fxLayout="row" fxLayoutGap="12px" class="item">
     <div *ngIf="index" fxFlex="2">{{index}}.</div>
     <a routerLink="/login" [queryParams]="{for:'vote'}" class="like">
-        <mat-icon>thumb_up</mat-icon>
+        <mat-icon class="arrow">arrow_right</mat-icon>
     </a>
     <div fxLayout="column">
         <div class="firstLine" fxLayout="row" fxLayoutGap="12px" fxLayout.lt-sm="column" *ngIf="item?.type==='story' ">
