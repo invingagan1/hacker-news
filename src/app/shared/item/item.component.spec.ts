@@ -1,16 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { MaterialModule } from "src/app/material/material.module";
+import { TimePipe } from "../pipes/time.pipe";
 
-import { ItemComponent } from './item.component';
+import { ItemComponent } from "./item.component";
 
-describe('ItemComponent', () => {
+describe("ItemComponent", () => {
   let component: ItemComponent;
   let fixture: ComponentFixture<ItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ItemComponent ]
-    })
-    .compileComponents();
+      declarations: [ItemComponent, TimePipe],
+      imports: [MaterialModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +21,7 @@ describe('ItemComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

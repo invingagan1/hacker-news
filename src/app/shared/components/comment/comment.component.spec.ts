@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TimePipe } from '../../pipes/time.pipe';
 
 import { CommentComponent } from './comment.component';
 
@@ -8,7 +9,7 @@ describe('CommentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CommentComponent ]
+      declarations: [ CommentComponent, TimePipe ]
     })
     .compileComponents();
   });

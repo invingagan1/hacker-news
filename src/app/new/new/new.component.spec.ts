@@ -1,4 +1,7 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ApiService } from 'src/app/api/api.service';
+import { NewSandboxService } from '../new-sandbox.service';
 
 import { NewComponent } from './new.component';
 
@@ -8,7 +11,9 @@ describe('NewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewComponent ]
+      declarations: [ NewComponent ],
+      providers:[NewSandboxService,ApiService,HttpClient],
+      imports:[HttpClientModule]
     })
     .compileComponents();
   });
