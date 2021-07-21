@@ -38,6 +38,9 @@ export class ApiService {
   public getItem(id: ItemId): Promise<Item> {
     return this.http.get(this.createItemUrl(id)).toPromise() as Promise<Item>;
   }
+  public getItems(ids: ItemId[]): Promise<Item[]> {
+    return Promise.all(ids.map((id) => this.getItem(id)));
+  }
 
   public getUser(username: string): Promise<User> {
     return this.http

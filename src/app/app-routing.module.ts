@@ -25,6 +25,10 @@ const routes: Routes = [
     loadChildren: () => import("./user/user.module").then((m) => m.UserModule),
   },
   {
+    path: "new",
+    loadChildren: () => import("./new/new.module").then((m) => m.NewModule),
+  },
+  {
     path: "**",
     loadChildren: () =>
       import("./page-not-found/page-not-found.module").then(
