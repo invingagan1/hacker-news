@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HeaderModule } from '../header/header.module';
+import { HeaderComponent } from '../header/header/header.component';
 
 import { PageNotFoundComponent } from './page-not-found.component';
 
@@ -8,7 +10,8 @@ describe('PageNotFoundComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageNotFoundComponent ]
+      declarations: [ PageNotFoundComponent, HeaderComponent ],
+      imports:[HeaderModule]
     })
     .compileComponents();
   });

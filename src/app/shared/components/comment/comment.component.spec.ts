@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
+import { MaterialModule } from 'src/app/material/material.module';
 import { TimePipe } from '../../pipes/time.pipe';
 
 import { CommentComponent } from './comment.component';
@@ -9,6 +11,7 @@ describe('CommentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:[RouterModule.forRoot([]), MaterialModule],
       declarations: [ CommentComponent, TimePipe ]
     })
     .compileComponents();
