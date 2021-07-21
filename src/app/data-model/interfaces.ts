@@ -25,10 +25,10 @@ export interface Item {
   by?:string;
 }
 export interface User {
-    about: string;
-    created:number;
-    delay: number;
+    about?: string;
+    created?:number;
+    delay?: number;
     id: string;
-    karma: number;
-    submitted: ItemId[]
+    karma?: number;
+    submitted?: ItemId[]
 }

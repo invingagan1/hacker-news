@@ -13,4 +13,7 @@ describe('AuthService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+  it("should be authenticated", ()=>{
+    expect(service.isAuthenticated()).toBe(true);
+  });
 });
