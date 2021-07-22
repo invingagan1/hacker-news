@@ -14,6 +14,7 @@
     }
     ul{
         list-style: none;
+        flex-wrap: wrap;
     }
     .link{
         padding: 0 0.4rem;
@@ -26,7 +27,6 @@
 @media only screen and (max-width: 599px){
     .footer{
         .link{
-            border-right: none;
         }
     }
 }
