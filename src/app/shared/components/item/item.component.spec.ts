@@ -1,9 +1,7 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { RouterModule } from "@angular/router";
-import { HeaderModule } from "src/app/header/header.module";
-import { HeaderComponent } from "src/app/header/header/header.component";
 import { MaterialModule } from "src/app/material/material.module";
-import { TimePipe } from "../pipes/time.pipe";
+import { TimePipe } from "../..//pipes/time.pipe";
 
 import { ItemComponent } from "./item.component";
 
