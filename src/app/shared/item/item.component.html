@@ -4,27 +4,26 @@
         <mat-icon class="arrow">arrow_right</mat-icon>
     </a>
     <div fxLayout="column">
-        <div class="firstLine" fxLayout="row" fxLayoutGap="12px" fxLayout.lt-sm="column" *ngIf="item?.type==='story' ">
+        <div class="firstLine" fxLayout="row" fxLayoutGap="12px" *ngIf="item?.type==='story' ">
             <a class="url" [href]="item?.url">{{item?.title}}</a>
             <a class="domain" [href]="item?.url | domain" class="domain">({{item?.url | domain : 'host'}})</a>
         </div>
-        <div class="secondLine" fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="start center"
-            fxLayoutAlign.lt-sm="start start" fxLayout.lt-sm="column">
+        <div class="secondLine" fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="start center">
             <span>{{item?.score}} points by
                 <a [routerLink]="['/user', item?.by]">{{item?.by}}</a> &nbsp;
                 <a [routerLink]="['/item', item?.id]"
                     [title]="item?.time | time">{{item?.time | time : 'fromNow'}}</a>.</span>
-            <mat-divider vertical="true" fxHide.lt-sm="true"></mat-divider>
+            <mat-divider vertical="true" ></mat-divider>
             <a routerLink="/login"  [queryParams]="{for:'hide'}"  >hide</a>
-            <mat-divider vertical="true" fxHide.lt-sm="true"></mat-divider>
+            <mat-divider vertical="true" ></mat-divider>
             <a routerLink="/past" >past</a>
 
-            <mat-divider vertical="true" fxHide.lt-sm="true" *ngIf="item?.parent "></mat-divider>
+            <mat-divider vertical="true"  *ngIf="item?.parent "></mat-divider>
             <a [routerLink]="['/item', item?.parent]" *ngIf="item?.parent ">parent</a>
 
-            <mat-divider vertical="true" fxHide.lt-sm="true"></mat-divider>
+            <mat-divider vertical="true" ></mat-divider>
             <a routerLink="/login" [queryParams]="{'for':'favorite'}">favorite</a>
-            <mat-divider vertical="true" fxHide.lt-sm="true"></mat-divider>
+            <mat-divider vertical="true" ></mat-divider>
             <a [routerLink]="['/item', item?.id]">{{item?.descendants}} comments</a>
         </div>
         <div class="thirdLine" *ngIf="item?.type === 'comment'" [innerHTML]="item?.text">
