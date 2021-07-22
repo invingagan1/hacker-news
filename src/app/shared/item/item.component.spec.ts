@@ -13,8 +13,8 @@ describe("ItemComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ItemComponent, TimePipe, HeaderComponent],
-      imports: [MaterialModule, RouterModule.forRoot([]),HeaderModule],
+      declarations: [ItemComponent, TimePipe],
+      imports: [MaterialModule, RouterModule.forRoot([])],
     }).compileComponents();
   });
 
