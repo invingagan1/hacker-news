@@ -7,14 +7,14 @@
         </div>
         <div fxLayout="column">
             <div fxLayout="row" fxLayoutGap="10px">
-                <a [routerLink]="['/user', item?.by]">{{item?.by}}</a>
-                <a [routerLink]="['/item', item?.id]">{{item?.time | time : 'fromNow'}}</a>
+                <a [routerLink]="['/user', item?.by]" class="user">{{item?.by}}</a>
+                <a [routerLink]="['/item', item?.id]" class="time">{{item?.time | time : 'fromNow'}}</a>
                 <span *ngIf="isExpanded; else kids" (click)="isExpanded = !isExpanded">[ - ]</span>
                 <ng-template #kids>
                     <span (click)="isExpanded = !isExpanded">[ {{kidsCount}} more ]</span>
                 </ng-template>
             </div>
-            <div *ngIf="isExpanded">
+            <div *ngIf="isExpanded" class="kidsSection">
                 <div class="text" [innerHtml]="item?.text" ></div>
                 <a routerLink="/login">reply</a>
             </div>

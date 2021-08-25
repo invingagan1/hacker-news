@@ -19,10 +19,16 @@ describe("HomeSandboxService", () => {
 
   it("should get 5 items ", (done) => {
     service.getTopStories().then(() => {
-      const subscription = service.topStories.subscribe((items) => {
+      // const subscription = service.topStories.subscribe((items) => {
+      //   expect(items.length).toBe(5);
+      //   done();
+      //   subscription.unsubscribe();
+      // });
+      service.topStories.subscribe(items => {
         expect(items.length).toBe(5);
         done();
-        subscription.unsubscribe();
+      },e=>{
+        done();
       });
     });
   });
